@@ -10,3 +10,7 @@ final List<String> images = [
 
 const kPrimaryColor = Color.fromRGBO(24, 119, 224, 1);
 const kPlaceHolder = Color.fromRGBO(160, 163, 189, 1);
+const kError = Color.fromRGBO(255, 132, 183, 1);
+
+const OutlineInputBorder colorlessBorder =
+    OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent));
