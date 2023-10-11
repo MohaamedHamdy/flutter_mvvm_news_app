@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app2/core/utils/constants.dart';
 import 'package:news_app2/core/utils/dimensions.dart';
+import 'package:news_app2/core/utils/router.dart';
 import 'package:news_app2/core/utils/styles.dart';
 import 'package:news_app2/core/widgets/custom_button.dart';
 import 'package:news_app2/features/onBoarding/presentation/widgets/on_boarding_slider.dart';
@@ -43,7 +44,7 @@ class SecondSection extends StatelessWidget {
                 ),
               ),
               CustomButton(
-                onPressed: index == 2 ? () {} : onPressed,
+                onPressed: index == 2 ? () {Navigator.pushNamed(context, AppRouter.kLogInScreen);} : onPressed,
                 text: buttonText[index],
                 width: index == 2
                     ? Dimensions.widthPercentage(context, 30)
