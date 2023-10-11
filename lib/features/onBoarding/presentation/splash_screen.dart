@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2),
-        () => Navigator.pushNamed(context, AppRouter.kHomeScreen));
+        () => Navigator.pushNamed(context, AppRouter.kOnBoardingScreen));
   }
 
   @override
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          '$images/logo.png',
+          '$imagesPath/logo.png',
         ),
       ),
     );

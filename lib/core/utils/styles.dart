@@ -1,36 +1,36 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppStyle {
-  static TextStyle style10 = TextStyle(
+  static TextStyle style10 = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style12 = TextStyle(
+  static TextStyle style12 = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style14 = TextStyle(
+  static TextStyle style14 = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style16 = TextStyle(
+  static TextStyle style16 = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style18 = TextStyle(
+  static TextStyle style18 = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style20 = TextStyle(
+  static TextStyle style20 = const TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
   );
-  static TextStyle style22 = TextStyle(
+  static TextStyle style22 = const TextStyle(
     fontSize: 22,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
   );
-  static TextStyle style24 = TextStyle(
+  static TextStyle style24 = const TextStyle(
     fontSize: 24,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
   );
 }
