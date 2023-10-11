@@ -7,9 +7,13 @@ import 'package:news_app2/features/onBoarding/presentation/widgets/on_boarding_s
 import 'package:news_app2/features/onBoarding/presentation/widgets/on_boarding_text.dart';
 
 class SecondSection extends StatelessWidget {
-  const SecondSection({Key? key, required this.index}) : super(key: key);
+  const SecondSection(
+      {Key? key, required this.index, required this.onPressed, required this.previous})
+      : super(key: key);
   final int index;
   static List buttonText = ['Next', 'Next', 'Get Started'];
+  final Function() onPressed;
+  final Function() previous;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class SecondSection extends StatelessWidget {
               OnBoardingSlider(index: index),
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: index == 0 ? () {} : previous,
                 child: Text(
                   'Back',
                   style: AppStyle.style16.copyWith(
@@ -39,11 +43,11 @@ class SecondSection extends StatelessWidget {
                 ),
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: index == 2 ? () {} : onPressed,
                 text: buttonText[index],
                 width: index == 2
-                    ? MediaQuery.of(context).size.width * 0.30
-                    : MediaQuery.of(context).size.width * 0.22,
+                    ? Dimensions.widthPercentage(context, 30)
+                    : Dimensions.widthPercentage(context, 22),
               ),
             ],
           ),
