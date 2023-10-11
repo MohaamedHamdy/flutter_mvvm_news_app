@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app2/core/utils/constants.dart';
+import 'package:news_app2/core/utils/dimensions.dart';
 import 'package:news_app2/core/utils/styles.dart';
 import 'package:news_app2/core/widgets/custom_button.dart';
 import 'package:news_app2/features/onBoarding/presentation/widgets/on_boarding_slider.dart';
@@ -17,9 +18,11 @@ class SecondSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          OnBoardingText(index: index,),
+          OnBoardingText(
+            index: index,
+          ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: Dimensions.heightPercentage(context, 10),
           ),
           Row(
             children: [
@@ -49,4 +52,3 @@ class SecondSection extends StatelessWidget {
     );
   }
 }
-
