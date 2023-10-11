@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app2/core/utils/router.dart';
 
 void main() {
@@ -14,6 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          color: Colors.transparent,
+          elevation: 0.0,
+        ),
         brightness: Brightness.dark,
         fontFamily: 'Poppins',
       ),
