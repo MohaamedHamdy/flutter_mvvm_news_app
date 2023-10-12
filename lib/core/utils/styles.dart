@@ -9,13 +9,15 @@ class AppStyle {
     fontSize: 12,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle style14 = const TextStyle(
+  static TextStyle style14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
+    color: Colors.white.withOpacity(0.4),
   );
-  static TextStyle style16 = const TextStyle(
+  static TextStyle style16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
+    color: Colors.white.withOpacity(0.4),
   );
   static TextStyle style18 = const TextStyle(
     fontSize: 18,

@@ -13,6 +13,7 @@ class FirstSection extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(images[index]),
+          fit: BoxFit.fill,
         ),
       ),
     );
