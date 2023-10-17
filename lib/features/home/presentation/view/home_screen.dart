@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app2/core/utils/constants.dart';
 
 import 'widgets/home_screen_body.dart';
 

@@ -16,7 +16,9 @@ class ThirdSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12.0),
-          child: CustomButton(onPressed: () {}, text: 'Login'),
+          child: CustomButton(onPressed: () {
+            Navigator.pushNamed(context, AppRouter.kHomeScreen);
+          }, text: 'Login'),
         ),
         Center(
           child: Text(
