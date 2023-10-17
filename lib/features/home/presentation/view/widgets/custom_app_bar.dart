@@ -20,6 +20,7 @@ class CustomAppBar extends StatelessWidget {
         Container(
             height: 40,
             width: 40,
+            margin: const EdgeInsets.only(right: 14),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.white.withOpacity(0.3),
