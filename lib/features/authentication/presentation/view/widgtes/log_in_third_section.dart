@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app2/core/utils/constants.dart';
+import 'package:news_app2/core/utils/router.dart';
 import 'package:news_app2/core/utils/styles.dart';
 import 'package:news_app2/core/widgets/custom_button.dart';
 
@@ -44,7 +45,9 @@ class ThirdSection extends StatelessWidget {
               style: AppStyle.style14,
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRouter.kSignUpScreen);
+                },
                 child: Text(
                   'Sign up',
                   style: AppStyle.style14.copyWith(color: kPrimaryColor),
