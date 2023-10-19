@@ -32,31 +32,40 @@ class TrendingItem extends StatelessWidget {
             style:
             AppStyle.style16.copyWith(color: Colors.white.withOpacity(0.7)),
           ),
-          Row(
-            children: [
-              Text(
-                'BBC News',
-                style: AppStyle.style12,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              Icon(
-                Icons.watch_later_outlined,
-                color: Colors.white.withOpacity(0.4),
-                size: 16,
-              ),
-              const SizedBox(
-                width: 2,
-              ),
-              Text(
-                '4 hours ago',
-                style: AppStyle.style12,
-              ),
-            ],
-          ),
+        const NewsProviderRow(),
         ],
       ),
+    );
+  }
+}
+
+class NewsProviderRow extends StatelessWidget {
+  const NewsProviderRow({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  Row(
+      children: [
+        Text(
+          'BBC News',
+          style: AppStyle.style12,
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Icon(
+          Icons.watch_later_outlined,
+          color: Colors.white.withOpacity(0.4),
+          size: 16,
+        ),
+        const SizedBox(
+          width: 2,
+        ),
+        Text(
+          '4 hours ago',
+          style: AppStyle.style12,
+        ),
+      ],
     );
   }
 }
