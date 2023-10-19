@@ -7,7 +7,7 @@ class ApiService {
   ApiService({required this.dio});
 
   Future fetchNews({required String category})async{
-    var response = await dio.get('$baseUrl&country=us&$category&$apiKey');
+    var response = await dio.get('${baseUrl}country=us&category=$category&apiKey=$apiKey');
     return response.data;
   }
 }

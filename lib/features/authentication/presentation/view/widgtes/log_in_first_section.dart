@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app2/core/utils/constants.dart';
+import 'package:news_app2/constants.dart';
 import 'package:news_app2/core/utils/dimensions.dart';
 import 'package:news_app2/core/utils/styles.dart';
 

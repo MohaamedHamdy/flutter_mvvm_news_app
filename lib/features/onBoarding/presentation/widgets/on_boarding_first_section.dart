@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app2/core/utils/constants.dart';
+import 'package:news_app2/constants.dart';
 
 class FirstSection extends StatelessWidget {
   const FirstSection({Key? key, required this.index}) : super(key: key);

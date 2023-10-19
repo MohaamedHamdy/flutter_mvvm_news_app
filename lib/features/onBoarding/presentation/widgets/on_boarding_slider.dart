@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app2/core/utils/constants.dart';
+import 'package:news_app2/constants.dart';
 
 class OnBoardingSlider extends StatelessWidget {
   const OnBoardingSlider({Key? key, required this.index}) : super(key: key);
