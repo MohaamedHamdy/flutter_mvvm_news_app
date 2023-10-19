@@ -1,13 +1,18 @@
-
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:news_app2/core/utils/dimensions.dart';
 import 'package:news_app2/core/utils/styles.dart';
+import 'package:news_app2/features/home/data/models/news_model.dart';
 
 import 'trending_item.dart';
 
 class NewsItem extends StatelessWidget {
-  const NewsItem({Key? key}) : super(key: key);
-
+  const NewsItem({
+    Key? key,
+    required this.newsModel,
+  }) : super(key: key);
+  final NewsModel newsModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +23,10 @@ class NewsItem extends StatelessWidget {
           Container(
             height: Dimensions.heightPercentage(context, 10),
             width: Dimensions.heightPercentage(context, 10),
-            color: Colors.red,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: NetworkImage(newsModel.urlToImage ?? ''),
+            )),
           ),
           const SizedBox(
             width: 10,
@@ -27,20 +35,23 @@ class NewsItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Europe',
+                newsModel.author ?? 'Author name is not available',
                 style: AppStyle.style14,
               ),
               SizedBox(
                 width: Dimensions.widthPercentage(context, 60),
                 child: Text(
-                  'Ukraine\'s President Zelensky to BBC: Blood money being paid',
+                  newsModel.title ?? 'No title',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: AppStyle.style16
                       .copyWith(color: Colors.white.withOpacity(0.7)),
                 ),
               ),
-              const NewsProviderRow(),
+              NewsProviderRow(
+                provider:
+                    newsModel.source?.name ?? 'Provider name is not available',
+              ),
             ],
           ),
         ],

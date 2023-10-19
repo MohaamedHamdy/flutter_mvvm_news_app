@@ -99,7 +99,7 @@ class NewsRepoImpl implements NewsRepo {
   @override
   Future<Either<Failure, List<NewsModel>>> fetchSportsNews() async {
     try {
-      var data = await apiService.fetchNews(category: 'Sports');
+      var data = await apiService.fetchNews(category: 'sports');
       List<NewsModel> newsModel = [];
       for (var item in data['articles']) {
         newsModel.add(NewsModel.fromJson(item));
