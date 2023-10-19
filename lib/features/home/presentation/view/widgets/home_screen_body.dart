@@ -2,8 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app2/core/utils/api_service.dart';
+// import 'package:news_app2/core/utils/service_locator.dart';
 import 'package:news_app2/features/home/data/repo/news_repo_implementation.dart';
 import 'package:news_app2/features/home/presentation/viewModel/cubit/news_cubit.dart';
+import 'package:news_app2/features/home/presentation/viewModel/health_cubit/health_cubit.dart';
 import 'package:news_app2/features/home/presentation/viewModel/sports_cubit/sports_cubit.dart';
 import 'custom_app_bar.dart';
 import 'custom_search_bar.dart';
@@ -34,6 +36,10 @@ class HomeScreenBody extends StatelessWidget {
         BlocProvider(
           create: (context) => SportsCubit(NewsRepoImpl(ApiService(dio: Dio())))
             ..fetchSportsNews(),
+        ),
+        BlocProvider(
+          create: (context) => HealthCubit(NewsRepoImpl(ApiService(dio: Dio())))
+            ..fetchHealthNews(),
         ),
       ],
       child: Scaffold(
