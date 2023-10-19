@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:news_app2/core/utils/dimensions.dart';
 import 'package:news_app2/core/utils/styles.dart';
+import 'package:news_app2/core/widgets/trending_loading.dart';
 import 'package:news_app2/features/home/presentation/viewModel/cubit/news_cubit.dart';
 
 class TrendingItem extends StatelessWidget {
@@ -54,7 +54,7 @@ class TrendingItem extends StatelessWidget {
         } else if (state is FetchNewsFailure) {
           return Text(state.errorMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const TrendingLoading();
         }
       },
     );

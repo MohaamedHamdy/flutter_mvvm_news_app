@@ -65,7 +65,7 @@ class NewsRepoImpl implements NewsRepo {
   @override
   Future<Either<Failure, List<NewsModel>>> fetchPoliticsNews() async {
     try {
-      var data = await apiService.fetchNews(category: 'Politics');
+      var data = await apiService.fetchNews(category: 'politics');
       List<NewsModel> newsModel = [];
       for (var item in data['articles']) {
         newsModel.add(NewsModel.fromJson(item));
@@ -100,23 +100,6 @@ class NewsRepoImpl implements NewsRepo {
   Future<Either<Failure, List<NewsModel>>> fetchSportsNews() async {
     try {
       var data = await apiService.fetchNews(category: 'sports');
-      List<NewsModel> newsModel = [];
-      for (var item in data['articles']) {
-        newsModel.add(NewsModel.fromJson(item));
-      }
-      return right(newsModel);
-    } catch (error) {
-      if (error is DioException) {
-        return left(ServerFailure.fromDioError(error));
-      }
-      return left(ServerFailure(failureMessage: error.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<NewsModel>>> fetchTravelNews() async {
-    try {
-      var data = await apiService.fetchNews(category: 'Travel');
       List<NewsModel> newsModel = [];
       for (var item in data['articles']) {
         newsModel.add(NewsModel.fromJson(item));

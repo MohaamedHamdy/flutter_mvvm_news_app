@@ -34,9 +34,13 @@ class NewsItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                newsModel.author ?? 'Author name is not available',
-                style: AppStyle.style14,
+              SizedBox(
+                width: Dimensions.widthPercentage(context, 66),
+                child: Text(
+                  newsModel.author ?? 'Author name is not available',
+                  maxLines: 1,
+                  style: AppStyle.style14,
+                ),
               ),
               SizedBox(
                 width: Dimensions.widthPercentage(context, 60),

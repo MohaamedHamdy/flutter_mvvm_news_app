@@ -4,8 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app2/core/utils/api_service.dart';
 // import 'package:news_app2/core/utils/service_locator.dart';
 import 'package:news_app2/features/home/data/repo/news_repo_implementation.dart';
+import 'package:news_app2/features/home/presentation/viewModel/business_cubit/business_cubit.dart';
 import 'package:news_app2/features/home/presentation/viewModel/cubit/news_cubit.dart';
 import 'package:news_app2/features/home/presentation/viewModel/health_cubit/health_cubit.dart';
+import 'package:news_app2/features/home/presentation/viewModel/politics_cubit/politics_cubit.dart';
+import 'package:news_app2/features/home/presentation/viewModel/science_cubit/science_cubit.dart';
 import 'package:news_app2/features/home/presentation/viewModel/sports_cubit/sports_cubit.dart';
 import 'custom_app_bar.dart';
 import 'custom_search_bar.dart';
@@ -21,7 +24,6 @@ class HomeScreenBody extends StatelessWidget {
     'Politics',
     'Health',
     'Science',
-    'Travel',
     'Business'
   ];
 
@@ -40,6 +42,21 @@ class HomeScreenBody extends StatelessWidget {
         BlocProvider(
           create: (context) => HealthCubit(NewsRepoImpl(ApiService(dio: Dio())))
             ..fetchHealthNews(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              PoliticsCubit(NewsRepoImpl(ApiService(dio: Dio())))
+                ..fetchPoliticsNews(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ScienceCubit(NewsRepoImpl(ApiService(dio: Dio())))
+                ..fetchSceinceNews(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              BusinessCubit(NewsRepoImpl(ApiService(dio: Dio())))
+                ..fetchBusinessNews(),
         ),
       ],
       child: Scaffold(

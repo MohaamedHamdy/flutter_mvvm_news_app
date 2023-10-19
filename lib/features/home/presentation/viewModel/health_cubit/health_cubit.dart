@@ -14,7 +14,7 @@ class HealthCubit extends Cubit<HealthState> {
   final NewsRepo newsRepo;
 
   Future<void> fetchHealthNews() async {
-    var result = await newsRepo.fetchAllNews();
+    var result = await newsRepo.fetchHealthNews();
     emit(HealthNewsLoading());
     result.fold(
         (failure) =>

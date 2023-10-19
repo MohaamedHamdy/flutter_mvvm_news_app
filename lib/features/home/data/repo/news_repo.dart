@@ -13,7 +13,5 @@ abstract class NewsRepo {
 
   Future<Either<Failure, List<NewsModel>>> fetchScienceNews();
 
-  Future<Either<Failure, List<NewsModel>>> fetchTravelNews();
-
   Future<Either<Failure, List<NewsModel>>> fetchBusinessNews();
 }
