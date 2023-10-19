@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app2/core/utils/dimensions.dart';
@@ -25,10 +26,8 @@ class TrendingItem extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 4),
                   height: Dimensions.heightPercentage(context, 20),
                   width: Dimensions.widthPercentage(context, 88),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image:
-                            NetworkImage(state.newsModel[1].urlToImage ?? '')),
+                  child: CachedNetworkImage(
+                    imageUrl: state.newsModel[1].urlToImage ?? '',
                   ),
                 ),
                 Text(

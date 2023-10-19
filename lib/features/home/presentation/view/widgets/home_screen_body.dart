@@ -62,18 +62,23 @@ class HomeScreenBody extends StatelessWidget {
       child: Scaffold(
         body: DefaultTabController(
           length: categories.length,
-          child: ListView(
+          child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            children: [
-              const CustomAppBar(),
-              const CustomSearchBar(),
-              const CustomTrendingRow(),
-              const TrendingItem(),
-              const CustomLatestRow(),
-              HomeNewsTabBar(
-                categories: categories,
+            child: SafeArea(
+              child: Column(
+                // physics: const BouncingScrollPhysics(),
+                children: [
+                  const CustomAppBar(),
+                  const CustomSearchBar(),
+                  const CustomTrendingRow(),
+                  const TrendingItem(),
+                  const CustomLatestRow(),
+                  HomeNewsTabBar(
+                    categories: categories,
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

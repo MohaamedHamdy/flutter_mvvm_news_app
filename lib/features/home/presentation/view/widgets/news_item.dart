@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:news_app2/core/utils/dimensions.dart';
@@ -20,13 +21,10 @@ class NewsItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: Dimensions.heightPercentage(context, 10),
             width: Dimensions.heightPercentage(context, 10),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: NetworkImage(newsModel.urlToImage ?? ''),
-            )),
+            child: CachedNetworkImage(imageUrl: newsModel.urlToImage ?? ''),
           ),
           const SizedBox(
             width: 10,

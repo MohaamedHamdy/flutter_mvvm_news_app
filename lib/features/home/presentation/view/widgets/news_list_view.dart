@@ -16,7 +16,7 @@ class NewsListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: ListView.builder(
-        itemCount: 2,
+        itemCount: newsModel.length,
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),

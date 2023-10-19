@@ -41,6 +41,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is FetchNewsSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is FetchNewsFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
@@ -54,6 +56,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is FetchSportsSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is FetchSportsFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
@@ -67,6 +71,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is FetchPoliticsSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is FetchPoliticsFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
@@ -80,6 +86,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is HealthNewsSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is HealthNewsFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
@@ -93,6 +101,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is FetchScienceSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is FetchScienceFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
@@ -106,6 +116,8 @@ class HomeNewsTabBar extends StatelessWidget {
                 builder: (context, state) {
                   if (state is FetchBusinessSuccess) {
                     return NewsListView(newsModel: state.newsModel);
+                  } else if (state is FetchBusinessFailure) {
+                    return Center(child: Text(state.errorMessage));
                   } else {
                     return ListView.builder(
                       itemBuilder: (context, index) {
