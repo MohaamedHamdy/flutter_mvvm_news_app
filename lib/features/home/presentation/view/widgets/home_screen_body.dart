@@ -1,4 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app2/core/utils/api_service.dart';
+import 'package:news_app2/features/home/data/repo/news_repo_implementation.dart';
+import 'package:news_app2/features/home/presentation/viewModel/cubit/news_cubit.dart';
 import 'custom_app_bar.dart';
 import 'custom_search_bar.dart';
 import 'custom_trending_row.dart';
@@ -19,21 +24,25 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: DefaultTabController(
-        length: categories.length,
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: [
-            const CustomAppBar(),
-            const CustomSearchBar(),
-            const CustomTrendingRow(),
-            const TrendingItem(),
-            const CustomLatestRow(),
-            HomeNewsTabBar(
-              categories: categories,
-            ),
-          ],
+    return BlocProvider(
+      create: (context) =>
+          NewsCubit(NewsRepoImpl(ApiService(dio: Dio())))..fetchAllNews(),
+      child: Scaffold(
+        body: DefaultTabController(
+          length: categories.length,
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              const CustomAppBar(),
+              const CustomSearchBar(),
+              const CustomTrendingRow(),
+              const TrendingItem(),
+              const CustomLatestRow(),
+              HomeNewsTabBar(
+                categories: categories,
+              ),
+            ],
+          ),
         ),
       ),
     );

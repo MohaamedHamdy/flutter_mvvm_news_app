@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:news_app2/features/home/data/models/news_model.dart';
@@ -15,14 +14,14 @@ class NewsRepoImpl implements NewsRepo {
   @override
   Future<Either<Failure, List<NewsModel>>> fetchAllNews() async {
     try {
-      var data = await apiService.fetchNews(category: 'All');
+      var data = await apiService.fetchNews(category: '');
       List<NewsModel> newsModel = [];
       for (var item in data['articles']) {
         newsModel.add(NewsModel.fromJson(item));
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -39,7 +38,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -47,7 +46,7 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<NewsModel>>> fetchHealthNews()async {
+  Future<Either<Failure, List<NewsModel>>> fetchHealthNews() async {
     try {
       var data = await apiService.fetchNews(category: 'Health');
       List<NewsModel> newsModel = [];
@@ -56,7 +55,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -64,7 +63,7 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<NewsModel>>> fetchPoliticsNews()async {
+  Future<Either<Failure, List<NewsModel>>> fetchPoliticsNews() async {
     try {
       var data = await apiService.fetchNews(category: 'Politics');
       List<NewsModel> newsModel = [];
@@ -73,7 +72,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -90,7 +89,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -98,7 +97,7 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<NewsModel>>> fetchSportsNews()async {
+  Future<Either<Failure, List<NewsModel>>> fetchSportsNews() async {
     try {
       var data = await apiService.fetchNews(category: 'Sports');
       List<NewsModel> newsModel = [];
@@ -107,7 +106,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));
@@ -124,7 +123,7 @@ class NewsRepoImpl implements NewsRepo {
       }
       return right(newsModel);
     } catch (error) {
-      if(error is DioException){
+      if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
       return left(ServerFailure(failureMessage: error.toString()));

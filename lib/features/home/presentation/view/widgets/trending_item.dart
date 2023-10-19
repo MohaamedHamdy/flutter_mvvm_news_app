@@ -1,53 +1,78 @@
-
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:news_app2/core/utils/dimensions.dart';
 import 'package:news_app2/core/utils/styles.dart';
+import 'package:news_app2/features/home/presentation/viewModel/cubit/news_cubit.dart';
 
 class TrendingItem extends StatelessWidget {
   const TrendingItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 14.0, right: 14, top: 10,bottom: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(bottom: 4),
-            height: Dimensions.heightPercentage(context, 20),
-            width: Dimensions.widthPercentage(context, 88),
-            color: Colors.red,
-          ),
-          Text(
-            'Europe',
-            style: AppStyle.style12,
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          Text(
-            'Russian warship: Moskva sinks in Black Sea',
-            style:
-            AppStyle.style16.copyWith(color: Colors.white.withOpacity(0.7)),
-          ),
-        const NewsProviderRow(),
-        ],
-      ),
+    return BlocBuilder<NewsCubit, NewsState>(
+      builder: (context, state) {
+        if (state is FetchNewsSuccess) {
+          return Padding(
+            padding: const EdgeInsets.only(
+                left: 14.0, right: 14, top: 10, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 4),
+                  height: Dimensions.heightPercentage(context, 20),
+                  width: Dimensions.widthPercentage(context, 88),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image:
+                            NetworkImage(state.newsModel[1].urlToImage ?? '')),
+                  ),
+                ),
+                Text(
+                  state.newsModel[0].author == null
+                      ? ''
+                      : state.newsModel[0].author!,
+                  style: AppStyle.style12,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                Text(
+                  state.newsModel[0].title ?? 'No Title',
+                  style: AppStyle.style16
+                      .copyWith(color: Colors.white.withOpacity(0.7)),
+                ),
+                NewsProviderRow(
+                  provider: state.newsModel[0].source!.name!,
+                ),
+              ],
+            ),
+          );
+        } else if (state is FetchNewsFailure) {
+          return Text(state.errorMessage);
+        } else {
+          return const CircularProgressIndicator();
+        }
+      },
     );
   }
 }
 
 class NewsProviderRow extends StatelessWidget {
-  const NewsProviderRow({Key? key}) : super(key: key);
-
+  const NewsProviderRow({
+    Key? key,
+    required this.provider,
+  }) : super(key: key);
+  final String provider;
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
         Text(
-          'BBC News',
+          provider,
           style: AppStyle.style12,
         ),
         const SizedBox(
